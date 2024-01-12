@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react'
-import TagContainer from './TagContainer'
+import RecommendTagContainer from './RecommendTagContainer'
 import {SelectedTagProvider} from './SelectedTagProvider'
+import SearchBar from './SearchBar'
 
 
 const SideSearchNav = () => {
@@ -8,9 +9,13 @@ const SideSearchNav = () => {
 
 
   return (
-    <SelectedTagProvider>
-      <TagContainer tagNames={tagNameList}/>
-    </SelectedTagProvider>
+    <>
+
+      <SelectedTagProvider>
+        <SearchBar />
+        <RecommendTagContainer tagNames={tagNameList}/>
+      </SelectedTagProvider>
+    </>
   )
 }
 
