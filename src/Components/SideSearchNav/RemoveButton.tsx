@@ -6,7 +6,7 @@ const RemoveButton = () => {
     const {selectedTag, setSelectedTag} = useSelectedTag();
 
     return (
-        <a className='' onClick={() => setSelectedTag("")}>
+        <a className='' onClick={() => setSelectedTag({label: '', color: ''})}>
             <CloseIcon className='fill-white scale-[.55]'/>
         </a>
     )

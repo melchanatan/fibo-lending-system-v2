@@ -1,20 +1,26 @@
 import React, { createContext, useState } from 'react'
+import { TagType } from './tag.type';
 
 
 type selectedTagContextType = {
-    selectedTag: string,
-    setSelectedTag: React.Dispatch<React.SetStateAction<string>>
-  }
-  
+    selectedTag: TagType,
+    setSelectedTag: React.Dispatch<React.SetStateAction<any>>
+}
+
+const initalContext = {
+    selectedTag: {label: "", color: "#000"},
+    setSelectedTag: () => ""
+};
+
 const selectedTagContext = createContext<selectedTagContextType>(
     {
-        selectedTag: "",
+        selectedTag: {label: "", color: "#000"},
         setSelectedTag: () => ""
     }
 );
 
 export const SelectedTagProvider = ({children}: {children: React.ReactNode}) => {
-    const [selectedTag, setSelectedTag] = useState("")
+    const [selectedTag, setSelectedTag] = useState({label: "", color: "#000"})
 
     return (
         <selectedTagContext.Provider 

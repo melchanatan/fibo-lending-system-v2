@@ -10,7 +10,6 @@ const SideSearchNav = () => {
 
   return (
     <>
-
       <SelectedTagProvider>
         <SearchBar />
         <RecommendTagContainer tagNames={tagNameList}/>

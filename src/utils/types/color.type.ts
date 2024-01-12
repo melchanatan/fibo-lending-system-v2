@@ -1,3 +1,3 @@
-type HEX = `#${string}`;
+type HEX = string;
 
  export type Color = HEX
