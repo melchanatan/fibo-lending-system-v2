@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+import TagContainer from './TagContainer'
+import {SelectedTagProvider} from './SelectedTagProvider'
+
 
 const SideSearchNav = () => {
+  const tagNameList = ["Controller", "Supply", "Actuator", "Sensor", "Mechanic"]
+
+
   return (
-    <div>SideSearchNav</div>
+    <SelectedTagProvider>
+      <TagContainer tagNames={tagNameList}/>
+    </SelectedTagProvider>
   )
 }
 

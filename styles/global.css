@@ -9,3 +9,7 @@
 html {
     font-family: "Inter", sans-serif;
 }
+
+.solid-shadow {
+    box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.25);
+}

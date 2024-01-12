@@ -12,6 +12,10 @@ const config: Config = {
         primary: ['Outfit', 'sans-serif'],
         secondary: ['inter', 'sans-serif']
       },
+      colors: {
+        'primary': '#000000',
+        'secondary': '#FFFFFF',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
