@@ -12,7 +12,7 @@ const RecommendTag = ({label, color}: TabsToggleProps) => {
 
   return (
     <a
-      className='group relative overflow-hidden bg-white border-primary border-[5px] py-1 rounded-[15px] flex items-center gap-4 solid-shadow'
+      className='group relative overflow-hidden bg-white solid-border py-1 rounded-[15px] flex items-center gap-4 solid-shadow'
       onClick={() => {setSelectedTag({label: label, color: color})}}
     >
       

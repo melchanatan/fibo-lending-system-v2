@@ -9,10 +9,12 @@ export default function Page() {
 
   return (
     <>
-        <h1 className=''>FRA 142 Lending Service</h1>
+        <h1 className='font-primary text-5xl font-bold'>FRA 142 Lending Service</h1>
         <CartNav />
-        <SideSearchNav />
-        <ProductFeed />
+        <div className="flex flex-row">
+          <SideSearchNav className='max-w-[20rem]'/>
+          <ProductFeed />
+        </div>
     </>
   )
 }
