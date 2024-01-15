@@ -1,7 +1,7 @@
 import React, { use, useEffect, useRef, useState } from 'react'
 import CloseIcon from './assets/CloseIcon'
 
-export const InteractiveOverlay = () => {
+export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => {
   interface mousePosType {
     x: number;
     y: number;
@@ -22,12 +22,16 @@ export const InteractiveOverlay = () => {
 
     // check mouse leave
     document.documentElement.addEventListener('mouseleave', () => {
-      setIsMouseOffScreen(true)
+      if (isMouseInside) {
+        setIsMouseOffScreen(true)
+      } 
     })
 
     // check mouse enter
     document.documentElement.addEventListener('mouseenter', () => {
-      setIsMouseOffScreen(false)
+      if (isMouseInside) {
+        setIsMouseOffScreen(false)
+      } 
     })
 
     return () => {
@@ -37,12 +41,12 @@ export const InteractiveOverlay = () => {
   
   // Create a ref to the IconButton element
   const refElement = useRef<HTMLDivElement>(null);
-
+  const refOverlay = useRef<HTMLDivElement>(null);
   const [isMouseOffScreen, setIsMouseOffScreen] = useState(false);
+  const [isMouseInside, setIsMouseInside] = useState(false);
 
   // Move the IconButton element to the mouse position
-  useEffect(() => {
-          
+  useEffect(() => {    
     // Move the IconButton element to the mouse position
     if (refElement.current) {
       refElement.current.style.left = `${mousePos.x - buttonSize / 2}px`;
@@ -55,14 +59,19 @@ export const InteractiveOverlay = () => {
   // Render the IconButton element
   return (
     <>
-      <div className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'>
+      <div ref={refOverlay}
+        onClick={handleClick}
+        className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'
+        onMouseEnter={() => setIsMouseInside(true)}
+        onMouseLeave={() => setIsMouseInside(false)}
+      >
         <div 
           ref={refElement}
           className={`transition-[scale,opacity] duration-100 flex justify-center items-center rounded-full bg-white solid-shadow cursor-none z-[101] fixed`}
           style={{
             width: `${buttonSize}px`, 
             height: `${buttonSize}px`,
-            scale: isMouseOffScreen ? 0 : 1,
+            scale: isMouseOffScreen || !isMouseInside ? 0 : 1,
           }}
         >
           <CloseIcon />
