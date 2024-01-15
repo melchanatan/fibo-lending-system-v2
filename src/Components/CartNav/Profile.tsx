@@ -1,8 +1,11 @@
 import React from 'react'
+import CloseIcon from './assets/CloseIcon'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div>
+        <CloseIcon icon="user" />
+    </div>
   )
 }
 
