@@ -6,7 +6,7 @@ import { TagType } from './tag.type'
 const SearchTag = ({label, color}: TagType) => {
   return (
     <li 
-    className='flex-row inline-flex items-center rounded-[7px] px-2 justify-between'
+    className='flex-row inline-flex items-center rounded-[7px] px-2 justify-between font-medium'
     style={{backgroundColor: color}}
     >
         <p>{label}</p>
@@ -14,5 +14,6 @@ const SearchTag = ({label, color}: TagType) => {
     </li>
   )
 }
+
 
 export default SearchTag

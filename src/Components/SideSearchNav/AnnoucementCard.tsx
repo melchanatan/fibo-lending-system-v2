@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import CloseIcon from './assets/CloseIcon';
+import AnnouncementIcon from './assets/AnnouncementIcon';
 
 const AnnoucementCard = () => {
   //TODO: add fetch announcement from db 
@@ -9,7 +9,7 @@ const AnnoucementCard = () => {
     <div 
       className='mb-8 relative solid-border solid-shadow rounded-[14px] px-5 py-7'
     >
-      <CloseIcon className='absolute translate-x-[-1.75rem] translate-y-[-2.25rem]'/>
+      <AnnouncementIcon className='absolute translate-x-[-3rem] translate-y-[-3.75rem] w-[5rem] h-[5rem] '/>
       {text}
     </div>
   )

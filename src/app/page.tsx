@@ -8,11 +8,11 @@ export default function Page() {
   const router = useRouter();
 
   return (
-    <section className='relative'>
-        <h1 className='font-primary text-5xl font-bold'>FRA 142 Lending Service</h1>
+    <section className='relative w-[90%] mx-auto'>
+        <h1 className='font-primary text-5xl font-bold mt-9 mb-9'>E-commerce store</h1>
         <CartNav />
-        <div className="flex flex-row">
-          <SideSearchNav className='max-w-[20rem]'/>
+        <div className="flex flex-row justify-center">
+          <SideSearchNav className='max-w-[20rem] mr-5'/>
           <ProductFeed />
         </div>
     </section>

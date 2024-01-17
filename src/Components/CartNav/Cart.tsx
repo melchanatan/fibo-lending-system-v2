@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react'
-import CloseIcon from './assets/CloseIcon'
+import CartIcon from './assets/CartIcon'
 import CartOverlay from './CartOverlay';
 
 const Cart = () => {
@@ -14,7 +14,7 @@ const Cart = () => {
   return (
     <>
       <a className='bg-black py-1 px-2 rounded-[8px]' onClick={toggleOverlay}>
-        <CloseIcon className="fill-white"/>
+        <CartIcon className="w-10 h-10 fill-white"/>
       </a>
       <CartOverlay isShowingOverlay={showingOverlay} handleClick={toggleOverlay}/>
     </>

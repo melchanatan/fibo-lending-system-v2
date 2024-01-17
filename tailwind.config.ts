@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Outfit', 'sans-serif'],
+        primary: ['Shantell Sans', 'sans-serif'],
         secondary: ['inter', 'sans-serif']
       },
       colors: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import CloseIcon from './assets/CloseIcon'
+import CloseIcon from './assets/ProfileIcon'
 
 const CartOverlayItem = () => {
   return (

@@ -1,10 +1,10 @@
 import React from 'react'
-import CloseIcon from './assets/CloseIcon'
+import ProfileIcon from './assets/ProfileIcon'
 
 const Profile = () => {
   return (
     <div>
-        <CloseIcon icon="user" />
+        <ProfileIcon className='w-10 h-10 fill-black stroke-[10px]'/>
     </div>
   )
 }
