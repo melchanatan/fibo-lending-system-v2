@@ -13,8 +13,8 @@ const Cart = () => {
  
   return (
     <>
-      <a className='bg-black py-1 px-2 rounded-[8px]' onClick={toggleOverlay}>
-        <CartIcon className="w-10 h-10 fill-white"/>
+      <a className='cursor-pointer group bg-black py-1 px-2 rounded-[8px]' onClick={toggleOverlay}>
+        <CartIcon className="button-bounce w-10 h-10 fill-white "/>
       </a>
       <CartOverlay isShowingOverlay={showingOverlay} handleClick={toggleOverlay}/>
     </>

@@ -12,6 +12,16 @@ html {
     display: inline-block;
 }
 
+@keyframes slidein {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
 /* tailwind styling */
 .solid-shadow {
     box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.25);
@@ -27,4 +37,8 @@ html {
 
 .clickable {
     @apply cursor-pointer
+}
+
+.button-bounce {
+    @apply cursor-pointer group-hover:animate-bounce active:translate-y-[-2px]
 }
