@@ -1,4 +1,4 @@
-import CartItem from "./cartItem.type";
-import { Item } from "./item.type";
+import CartItem from "./CartItem.type";
+import { Item } from "./Item.type";
 
 export type { CartItem , Item };
