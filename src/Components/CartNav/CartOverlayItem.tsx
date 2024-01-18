@@ -11,7 +11,7 @@ const CartOverlayItem = () => {
         </div>
         <div className='flex ml-auto'>
           <input type="number" className='bg-gray-100 w-[3ch]'/>
-          <CloseIcon />
+          <CloseIcon className=''/>
         </div>
     </li>
   )

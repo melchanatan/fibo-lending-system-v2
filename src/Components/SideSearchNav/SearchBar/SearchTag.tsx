@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSelectedTag } from './SelectedTagProvider'
-import RemoveButton from './RemoveButton'
-import { TagType } from './tag.type'
+import { useSelectedTag } from '../SelectedTagProvider'
+import RemoveButton from '../RecommendTagContainer/RemoveButton'
+import { TagType } from '../tag.type'
 
 const SearchTag = ({label, color}: TagType) => {
   return (

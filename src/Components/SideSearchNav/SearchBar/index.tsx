@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchTagContainer from './SearchTagContainer'
-import SearchIcon from './assets/SearchIcon'
-import { useSelectedTag } from './SelectedTagProvider'
+import SearchIcon from '../assets/SearchIcon'
+import { useSelectedTag } from '../SelectedTagProvider'
 
 const SearchBar = () => {
   const {selectedTag} = useSelectedTag();

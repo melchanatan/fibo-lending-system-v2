@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelectedTag } from './SelectedTagProvider'
+import { useSelectedTag } from '../SelectedTagProvider'
 import SearchTag from './SearchTag'
 
 const SearchTagContainer = () => {

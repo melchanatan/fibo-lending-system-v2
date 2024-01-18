@@ -1,6 +1,6 @@
 import React from 'react'
 import {Color} from '@/utils/types/color.type';
-import { useSelectedTag } from './SelectedTagProvider';
+import { useSelectedTag } from '../SelectedTagProvider';
 
 interface TabsToggleProps {
   label: string;

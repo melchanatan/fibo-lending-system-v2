@@ -1,6 +1,6 @@
 import React from 'react'
-import CloseIcon from './assets/CloseIcon'
-import { useSelectedTag } from './SelectedTagProvider'
+import CloseIcon from '../assets/CloseIcon'
+import { useSelectedTag } from '../SelectedTagProvider'
 
 const RemoveButton = () => {
     const {selectedTag, setSelectedTag} = useSelectedTag();
