@@ -7,11 +7,6 @@ type selectedTagContextType = {
     setSelectedTag: React.Dispatch<React.SetStateAction<any>>
 }
 
-const initalContext = {
-    selectedTag: {label: "", color: "#000"},
-    setSelectedTag: () => ""
-};
-
 const selectedTagContext = createContext<selectedTagContextType>(
     {
         selectedTag: {label: "", color: "#000"},

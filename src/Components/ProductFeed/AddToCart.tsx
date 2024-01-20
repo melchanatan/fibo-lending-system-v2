@@ -1,11 +1,20 @@
 import React from 'react'
 import CloseIcon from '../assets/CloseIcon'
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '@/store/cartReducer';
 
 const AddToCart = () => {
+  const cart = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addItem("hello"))
+  }
+  
   return (
-    <div className='p-3 bg-black [&>*]:fill-white '>
-      <CloseIcon />
-    </div>
+    <a className='group p-3 bg-black [&>*]:fill-white cursor-pointer active:scale-110' onClick={handleAddToCart}>
+      <CloseIcon className='button-bounce group-active:scale-110' />
+    </a>
   )
 }
 
