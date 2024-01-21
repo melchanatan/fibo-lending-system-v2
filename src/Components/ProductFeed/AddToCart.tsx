@@ -13,7 +13,7 @@ const AddToCart = () => {
   
   return (
     <a className='group p-3 bg-black [&>*]:fill-white cursor-pointer active:scale-110' onClick={handleAddToCart}>
-      <CloseIcon className='button-bounce group-active:scale-110' />
+      <CloseIcon className='button-bounce' />
     </a>
   )
 }
