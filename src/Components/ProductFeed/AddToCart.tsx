@@ -1,13 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import PlusIcon from './assets/PlusIcon'
 import MinusIcon from './assets/MinusIcon'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, increaseQuantity, decreaseQuantity, editQuantity } from '@/store/cartReducer';
+import { addItem, increaseQuantity, decreaseQuantity, editQuantity, removeItem } from '@/store/cartReducer';
 
 const AddToCart = ({itemId}: {itemId: string}) => {
+  const cartSelector = useSelector((state: any) => state.cart);
+  const itemInCart = cartSelector.cart[itemId]?.quantity;
 
   const dispatch = useDispatch();
+
+  // Remove item from cart if quantity is 0
+  useEffect(() => {
+    if (itemInCart === 0) {
+      dispatch(removeItem({id: itemId}))
+    }
+  }, [itemInCart])
 
   // Add item to cart with the default quantity of 1
   const handleAddToCart = () => {
@@ -27,13 +36,16 @@ const AddToCart = ({itemId}: {itemId: string}) => {
 
 const VerticalNumberInput = ({itemId}: {itemId: string}) => {
   const cartSelector = useSelector((state: any) => state.cart);
-  const dispatch = useDispatch();
-
   const itemInCart = cartSelector.cart[itemId]?.quantity;
 
-  const handleInputChange = (e) => {
+  const dispatch = useDispatch();
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(editQuantity({id: itemId, quantity: parseInt(e.target.value)}))
   }
+  
+
   return (
     <div className='absolute flex flex-col w-[54px] top-[6px] right-[6px] z-10'>
       <a 

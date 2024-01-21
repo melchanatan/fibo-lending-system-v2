@@ -9,7 +9,7 @@ const AnnoucementCard = () => {
     <div 
       className='mb-8 relative solid-border solid-shadow rounded-[14px] px-5 py-7'
     >
-      <AnnouncementIcon className='absolute translate-x-[-3rem] translate-y-[-3.75rem] w-[5rem] h-[5rem] '/>
+      <AnnouncementIcon className='absolute translate-x-[-3rem] translate-y-[-3.75rem] w-[6rem] h-[6rem] '/>
       {text}
     </div>
   )
