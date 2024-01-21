@@ -6,11 +6,11 @@ import {Item} from '@/types/Item.type'
 const items: Item[] = [
   {
     "012" : {
-      productName: 'Item name 1',
-      price: 120,
+      productName: 'Item name 12',
+      price: 12012,
       description: 'This is a description of item 1.',
       image: './public/banana-wall.png',
-      quantity: 1,
+      stock: 1,
     },
   },
   {
@@ -19,7 +19,7 @@ const items: Item[] = [
       price: 120,
       description: 'This is a description of item 1.',
       image: './public/banana-wall.png',
-      quantity: 1,
+      stock: 1,
     },
   }
     // {
@@ -64,15 +64,11 @@ const ProductFeed = () => (
         const itemKey = Object.keys(item)[0];
         return ( 
         <ItemCard 
-          key={itemKey} 
-          name={item[itemKey].productName}
-          price={item[itemKey].price}
-          image={item[itemKey].image}
-          quantity={item[itemKey].quantity}
-         />
-        )
-      }
-    )
+            key={itemKey} 
+            itemId={itemKey}
+            item={item[itemKey]}
+         />)
+      })
     }
   </div>
 )
