@@ -12,7 +12,7 @@ const ItemCard = ({item, itemId}: {item: Item[0], itemId: string}) => {
   return (
     <div className='min-w-[10rem] solid-border rounded-[15px] relative solid-shadow'>
 
-      <div className="bg-[url('/banana-wall.png')] w-full h-[10rem] bg-cover rounded-t-[11px] z-[-2]">
+      <div className="bg-[url('/banana-wall.png')] w-full h-[10rem] bg-cover rounded-t-[11px] z-[-2] cursor-pointer">
       </div>
       
       <div className='flex justify-between pl-3 rounded-b-[11px] top-shadow'>

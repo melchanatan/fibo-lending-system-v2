@@ -15,7 +15,7 @@ export default function Page() {
           <h1 className='font-primary text-5xl font-bold mt-9 mb-9'>E-commerce store</h1>
           <CartNav />
           <div className="flex flex-row justify-center">
-            <SideSearchNav className='max-w-[20rem] mr-5'/>
+            <SideSearchNav className='max-w-[20rem] mr-5 sticky top-[3rem] h-full'/>
             <ProductFeed />
           </div>
         </Provider>

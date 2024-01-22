@@ -17,7 +17,45 @@ const initialState: {products: Item} = {
           image: './public/banana-wall.png',
           stock: 1,
         },
+        //more placeholder items
+        "0121221" : {
+          productName: 'Item name 1',
+          price: 120,
+          description: 'This is a description of item 1.',
+          image: './public/banana-wall.png',
+          stock: 1,
+        },
+        "01212211" : {
+          productName: 'Item name 1',
+          price: 120,
+          description: 'This is a description of item 1.',
+          image: './public/banana-wall.png',
+          stock: 1,
+        }, 
+        "012122111" : {
+          productName: 'Item name 1',
+          price: 120,
+          description: 'This is a description of item 1.',
+          image: './public/banana-wall.png',
+          stock: 1,
+        },
+        //more placeholder items
+        "0121221111" : {
+          productName: 'Item name 1',
+          price: 120,
+          description: 'This is a description of item 1.',
+          image: './public/banana-wall.png',
+          stock: 1,
+        },
+        "01212211111" : {
+          productName: 'Item name 1',
+          price: 120,
+          description: 'This is a description of item 1.',
+          image: './public/banana-wall.png',
+          stock: 1,
+        }
     },
+    
 };
 
 export const productSlice = createSlice({

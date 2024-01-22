@@ -1,3 +1,4 @@
+import Footer from '@/Components/footer'
 import '../../styles/global.css'
 
 // layout.tsx
@@ -13,7 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className='h-[100vh] z-0'>{children}</body>
+      <Footer /> 
     </html>
   )
 }
