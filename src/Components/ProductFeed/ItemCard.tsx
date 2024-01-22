@@ -11,14 +11,16 @@ const ItemCard = ({item, itemId}: {item: Item[0], itemId: string}) => {
   const itemInCart = cartSelector.cart[itemId]?.quantity;
   return (
     <div className='min-w-[10rem] solid-border rounded-[15px] relative solid-shadow'>
-      <div className="bg-[url('/banana-wall.png')] w-full h-[10rem] bg-cover rounded-t-[11px] z-[-1]">
-        <InteractiveOverlay handleClick={()=>{}} className='w-full h-[70%] absolute bg-black/50 z-50'/>
+
+      <div className="bg-[url('/banana-wall.png')] w-full h-[10rem] bg-cover rounded-t-[11px] z-[-2]">
       </div>
+      
       <div className='flex justify-between pl-3 rounded-b-[11px] top-shadow'>
         <ul className='py-1'>
           <li className='font-semibold'>{item.productName}</li>
           <li>{item.price} $</li>
         </ul>
+
         <div className="flex">
           {
             itemInCart == undefined || itemInCart == 0 ?

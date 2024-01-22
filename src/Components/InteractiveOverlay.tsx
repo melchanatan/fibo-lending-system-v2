@@ -39,7 +39,20 @@ export const InteractiveOverlay = ({handleClick, className}: {handleClick: () =>
     }
   }, [mousePos]);
 
+  // Check component is inside the bound of the overlay
+  useEffect(() => {
+    if (refElement.current && refOverlay.current) {
+      const overlayRect = refOverlay.current.getBoundingClientRect();
+      const elementRect = refElement.current.getBoundingClientRect();
+      if (elementRect.x <= overlayRect.x || elementRect.x + elementRect.width >= overlayRect.x + overlayRect.width || elementRect.y <= overlayRect.y || elementRect.y + elementRect.height > overlayRect.y + overlayRect.height) {
+        setIsMouseInside(false);
+      } else {
+        setIsMouseInside(true);
+      }
+    }
+  }, [mousePos])
 
+  const [mouseHovering, setMouseHovering] = useState(false);
 
   // Render the IconButton element
   return (
@@ -47,16 +60,16 @@ export const InteractiveOverlay = ({handleClick, className}: {handleClick: () =>
       <div ref={refOverlay}
         onClick={handleClick}
         className={className}
-        onMouseEnter={() => setIsMouseInside(true)}
-        onMouseLeave={() => setIsMouseInside(false)}
+        onMouseEnter={() => setMouseHovering(true)}
+        onMouseLeave={() => setMouseHovering(false)}
       >
         <div 
           ref={refElement}
-          className={`transition-[scale,opacity] duration-100 flex justify-center items-center rounded-full bg-white solid-shadow cursor-none z-[101] fixed`}
+          className={`transition-[scale,opacity] duration-100 flex justify-center items-center rounded-full bg-white solid-shadow cursor-none z-[0] fixed`}
           style={{
             width: `${buttonSize}px`, 
             height: `${buttonSize}px`,
-            scale: isMouseInside ? 1 : 0,
+            scale: isMouseInside && mouseHovering ? 1 : 0,
           }}
         >
           <CloseIcon />
