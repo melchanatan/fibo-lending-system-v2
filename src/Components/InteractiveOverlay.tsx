@@ -1,7 +1,7 @@
 import React, { use, useEffect, useRef, useState } from 'react'
 import CloseIcon from './assets/CloseIcon'
 
-export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => {
+export const InteractiveOverlay = ({handleClick, className}: {handleClick: () => void, className?: string}) => {
   interface mousePosType {
     x: number;
     y: number;
@@ -20,20 +20,6 @@ export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => 
 
     window.addEventListener('mousemove', handleMouseMove);
 
-    // check mouse leave
-    document.documentElement.addEventListener('mouseleave', () => {
-      if (isMouseInside) {
-        setIsMouseOffScreen(true)
-      } 
-    })
-
-    // check mouse enter
-    document.documentElement.addEventListener('mouseenter', () => {
-      if (isMouseInside) {
-        setIsMouseOffScreen(false)
-      } 
-    })
-
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -42,7 +28,6 @@ export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => 
   // Create a ref to the IconButton element
   const refElement = useRef<HTMLDivElement>(null);
   const refOverlay = useRef<HTMLDivElement>(null);
-  const [isMouseOffScreen, setIsMouseOffScreen] = useState(false);
   const [isMouseInside, setIsMouseInside] = useState(false);
 
   // Move the IconButton element to the mouse position
@@ -61,7 +46,7 @@ export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => 
     <>
       <div ref={refOverlay}
         onClick={handleClick}
-        className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'
+        className={className}
         onMouseEnter={() => setIsMouseInside(true)}
         onMouseLeave={() => setIsMouseInside(false)}
       >
@@ -71,7 +56,7 @@ export const InteractiveOverlay = ({handleClick}: {handleClick: () => void}) => 
           style={{
             width: `${buttonSize}px`, 
             height: `${buttonSize}px`,
-            scale: isMouseOffScreen || !isMouseInside ? 0 : 1,
+            scale: isMouseInside ? 1 : 0,
           }}
         >
           <CloseIcon />

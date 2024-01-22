@@ -4,7 +4,7 @@ import CartOverlay from './CartOverlay';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const [showingOverlay, setShowingOverlay] = useState(true);
+  const [showingOverlay, setShowingOverlay] = useState(false);
   const cartSelector = useSelector((state: any) => state.cart);
 
   // toggle showingOverlay

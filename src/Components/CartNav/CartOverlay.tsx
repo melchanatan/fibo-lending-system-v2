@@ -44,7 +44,7 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
         </div>      
       {
         isShowingOverlay &&          
-        <InteractiveOverlay handleClick={handleClick} /> 
+        <InteractiveOverlay handleClick={handleClick} className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'/> 
       }
     </>
   )
