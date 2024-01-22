@@ -14,8 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='h-[100vh] z-0'>{children}</body>
-      <Footer /> 
+      <body className='h-[100vh] z-0'>
+      {children}
+      
+      <Footer/>
+      </body>
+      
     </html>
   )
 }

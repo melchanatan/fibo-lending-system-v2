@@ -24,23 +24,26 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
           {
             // conditionally rendering the cart items if cart is not empty
             Object.keys(itemInCart).length != 0 ?
-            <ul className='gap-3 flex flex-col'>
-            {
-              Object.keys(itemInCart).map( (itemKey: string) => {
-                return  <CartOverlayItem               
-                    key={itemKey} 
-                    itemId={itemKey}
-                    item={itemInCart[itemKey]}
-                />
-              })
-            }
-            </ul> :
+            <>
+              <ul className='gap-3 flex flex-col'>
+              {
+                Object.keys(itemInCart).map( (itemKey: string) => {
+                  return  <CartOverlayItem               
+                      key={itemKey} 
+                      itemId={itemKey}
+                      item={itemInCart[itemKey]}
+                  />
+                })
+              }
+              </ul>
+              <button>Checkout</button>
+              <h1>Hlelo</h1>
+            </> :
             <div className='flex justify-center items-center flex-col h-[80%]'>
               <CartEmptyIcon className="w-[300px] h-[300px] fill-gray-300" />
               Oops, look like your cart is empty.
             </div>
           }
-          
         </div>      
       {
         isShowingOverlay &&          
