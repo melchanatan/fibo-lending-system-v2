@@ -14,7 +14,7 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
 
   return (
     <>
-        <div className='z-[1000] fixed h-[calc(100vh-1rem)] top-2 bg-white solid-shadow rounded-[20px] border-black w-[60vw] p-10 transition-all'
+        <div className='z-[1000] fixed h-[calc(100vh-40px)] top-5 bg-white solid-shadow rounded-[20px] border-black w-[60vw] max-w-[700px] !px-10 p-10  transition-all'
           style={{right: isShowingOverlay ? "5px" : "-5000px"}}
         >
           <div className="flex justify-between items-center mb-6">
@@ -24,8 +24,8 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
           {
             // conditionally rendering the cart items if cart is not empty
             Object.keys(itemInCart).length != 0 ?
-            <>
-              <ul className='gap-3 flex flex-col'>
+            <div className='flex flex-col justify-between h-[100%] pb-5'>
+              <ul className='gap-3 flex flex-col overflow-y-auto'>
               {
                 Object.keys(itemInCart).map( (itemKey: string) => {
                   return  <CartOverlayItem               
@@ -36,12 +36,20 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
                 })
               }
               </ul>
-              <button>Checkout</button>
-              <h1>Hlelo</h1>
-            </> :
+              <div className="flex justify-between items-center pb-4 pt-5">
+                <h4 className=''>Subtotal 
+                  <h2 className='text-2xl font-semibold font-primary '>$ 120</h2>
+                </h4>
+                <button className=' text-lg w-[60%] text-white rounded-[12px] active:scale-110 group'>
+                  <div className='group-hover:animate-bounce bg-black w-[100%] py-3 rounded-[12px] flex justify-center items-center'>
+                    <h4>Checkout</h4>
+                  </div>
+                </button>
+              </div>
+            </div> :
             <div className='flex justify-center items-center flex-col h-[80%]'>
               <CartEmptyIcon className="w-[300px] h-[300px] fill-gray-300" />
-              Oops, look like your cart is empty.
+              <p>Oops, look like your cart is empty.</p>
             </div>
           }
         </div>      

@@ -8,7 +8,7 @@ export const InteractiveOverlay = ({handleClick, className}: {handleClick: () =>
   }
 
   // Create a state to store the mouse position
-  const [mousePos, setMousePos] = useState({x: 1000, y: 1000} as mousePosType);
+  const [mousePos, setMousePos] = useState({x: 10000, y: 10000} as mousePosType);
 
   // Listen to mouse movement and update mousePos state
   const buttonSize = 64

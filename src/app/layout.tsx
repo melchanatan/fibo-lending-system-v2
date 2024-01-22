@@ -14,9 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='h-[100vh] z-0'>
-      {children}
-      
+      <body className=' z-0'>
+      <div className="h-[90vh]">{children}</div>
       <Footer/>
       </body>
       
