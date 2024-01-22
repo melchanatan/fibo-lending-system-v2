@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className=' z-0'>
-      <div className="h-[90vh]">{children}</div>
+      <div className="min-h-screen h-full">{children}</div>
       <Footer/>
       </body>
       
