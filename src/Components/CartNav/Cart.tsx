@@ -12,12 +12,6 @@ const Cart = () => {
     setShowingOverlay(prev => !prev);
   }
   
-  useEffect(() => {
-    console.log(Object.keys(cartSelector.cart).length);
-    console.log(Object.keys(cartSelector.cart));
-
-  }, [cartSelector])
-  
   const cartLength = Object.keys(cartSelector.cart).length;
   return (
     <>

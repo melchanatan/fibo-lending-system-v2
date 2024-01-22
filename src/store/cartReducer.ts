@@ -4,7 +4,7 @@ import {CartItem} from '../types';
 const initialState: {cart: CartItem} = {
   cart: {},
 }
-
+ 
 export const cartSlice = createSlice({
   name: 'cartHandler',
   initialState,
@@ -28,4 +28,5 @@ export const cartSlice = createSlice({
 });
 
 export const {addItem, increaseQuantity, decreaseQuantity, editQuantity, removeItem} = cartSlice.actions;
+
 export default cartSlice.reducer;
