@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartOverlayItem from './CartOverlayItem'
 import { InteractiveOverlay } from '../InteractiveOverlay'
 import CloseIcon from '../assets/CloseIcon'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
 import { CartItem, Item } from '@/types'
 import CartEmptyIcon from './assets/CartEmptyIcon'
@@ -12,9 +12,18 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
   const cartSelector = useSelector((state: any) => state.cart)
   const itemInCart = cartSelector.cart;
 
+  // prevent scrolling when overlay is showing
+  useEffect(() => {
+    if (isShowingOverlay) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
+  }, [isShowingOverlay])
+
   return (
     <>
-        <div className='z-[1000] fixed h-[calc(100vh-40px)] top-5 bg-white solid-shadow rounded-[20px] border-black w-[60vw] max-w-[700px] !px-10 p-10  transition-all'
+        <div className='z-[1000] fixed h-[calc(100vh-40px)] top-5 bg-white solid-shadow rounded-[20px] border-black w-[60vw] max-w-[700px] !px-10 p-10  transition-all duration-300'
           style={{right: isShowingOverlay ? "5px" : "-5000px"}}
         >
           <div className="flex justify-between items-center mb-6">
@@ -53,10 +62,19 @@ const CartOverlay = ({isShowingOverlay, handleClick}: {isShowingOverlay: boolean
             </div>
           }
         </div>      
-      {
-        isShowingOverlay &&          
-        <InteractiveOverlay handleClick={handleClick} className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'/> 
-      }
+        <AnimatePresence>
+        {
+          isShowingOverlay &&   
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >       
+            <InteractiveOverlay handleClick={handleClick} className='fixed w-[100vw] h-[100vh] bg-black/50 right-0 top-0 z-[100] cursor-none'/>
+          </ motion.div >
+        }
+        </AnimatePresence> 
+      
     </>
   )
 }
